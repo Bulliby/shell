@@ -100,12 +100,12 @@ function rm() {
         if [ $opt_verbose -ne 0 ] ; then
             echo "Suppression de $1"
         fi
-        mv -f "$1" "${backup_rm}/"
+        mv -f "$1" "${backup_rm}"
         if [ $? -ne 0 ] ; then
             shift
             continue;
         fi
-        chmod 700 "${backup_rm}/$1"
+        chmod 700 "${backup_rm}/${1##*/}"
         shift
     done
 }
